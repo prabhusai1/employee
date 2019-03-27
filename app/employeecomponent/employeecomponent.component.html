@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Employee Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+
+  <input type="text" [value]='name'>
+
+  <p>[name]={{get}}</p>
+
+  <p appOwnDirective>hello</p>
+
+  <table>
+
+    <thead>
+      <tr>
+        <th>EmployeeName </th>
+        <th>Gender </th>
+        <th>Department </th>
+      </tr>
+
+      <app-emp-list [Total]="getTotalEmployee()" [Male]="getMale()" [Female]="getFemale()"
+        (OnSelectionOfRadioButton)="onESelection($event)">
+      </app-emp-list>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employeeDetails of EmployeeTable">
+        <!--    <tr *ngIf="SelectedEmployee=='Total'|| SelectedEmployee==EmployeeTable">-->
+        <td>{{employeeDetails.EmployeeName}}</td>
+        <td>{{employeeDetails.Gender}}</td>
+        <td>{{employeeDetails.Department}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+  <!--<input type="radio" name="options" value="Total" [(ngModel)]='selectedEmployee' (change)='OnSelectionRadioButton()' />
+  <span class="radioClass">{{"Total is ("+Total+")"}}</span>
+
+  <input type="radio" name="options" value="Male" [(ngModel)]='selectedEmployee' (change)='OnSelectionRadioButton()' />
+  <span class="radioClass">{{"Male is ("+Male+")"}}</span>
+
+  <input type="radio" name="options" value="Female" [(ngModel)]='selectedEmployee' (change)='OnSelectionRadioButton()' />
+  <span class="radioClass">{{"Female is ("+Female+")"}}</span> -->
+</body>
+
+</html>
